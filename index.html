@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Whatsgroup | Soluções Digitais</title>
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="favicon4.png">
+
+<!-- 🎯 OPEN GRAPH (banner nos chats) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="🚀 Whatsgroup — Grupo de Soluções Digitais">
+<meta property="og:description" content="Entre no grupo oficial da SidMarketing. Sites profissionais, dicas de marketing digital e muito mais!">
+<meta property="og:image" content="favicon4.png">
+<meta name="theme-color" content="#000000">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow-x:hidden}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:60px 20px 80px;
+}
+
+/* 🎬 FUNDO GIF */
+.bg-video{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:url('background.gif') center center / cover no-repeat;
+  z-index:0;
+  opacity:.85;
+}
+
+/* 💚 NEON PULSANTE NOS 4 CANTOS */
+.neon{
+  position:fixed;
+  width:220px;height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, #25D366 0%, transparent 70%);
+  filter:blur(40px);
+  opacity:.6;
+  animation:pulse 3.5s ease-in-out infinite;
+  z-index:1;
+  pointer-events:none;
+}
+.n-tl{top:-60px;left:-60px}
+.n-tr{top:-60px;right:-60px;animation-delay:-1s}
+.n-bl{bottom:-60px;left:-60px;animation-delay:-2s}
+.n-br{bottom:-60px;right:-60px;animation-delay:-1.5s}
+@keyframes pulse{
+  0%,100%{opacity:.35;transform:scale(1)}
+  50%{opacity:.85;transform:scale(1.15)}
+}
+
+/* 🧊 CONTAINER DE VIDRO */
+.glass{
+  position:relative;
+  z-index:10;
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:28px;
+  padding:36px 28px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 0 40px rgba(37,211,102,.15);
+  text-align:center;
+}
+.glass::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:60%;
+  background:linear-gradient(180deg, rgba(255,255,255,.08), transparent);
+  border-radius:28px 28px 0 0;
+  pointer-events:none;
+}
+
+/* 💊 BOTÃO PÍLULA 3D VERDE VITRIFICADO */
+.pill{
+  display:inline-block;
+  margin-top:24px;
+  padding:16px 44px;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(135deg, #25D366 0%, #128C7E 50%, #25D366 100%);
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  font-size:1.1rem;
+  letter-spacing:1px;
+  cursor:pointer;
+  text-decoration:none;
+  box-shadow:
+    0 8px 20px rgba(37,211,102,.5),
+    0 2px 4px rgba(0,0,0,.4),
+    inset 0 -3px 6px rgba(0,0,0,.2),
+    inset 0 2px 4px rgba(255,255,255,.3);
+  transition:all .3s;
+  position:relative;
+  overflow:hidden;
+}
+.pill::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+  transition:.5s;
+}
+.pill:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:
+    0 12px 28px rgba(37,211,102,.7),
+    inset 0 -3px 6px rgba(0,0,0,.2),
+    inset 0 2px 4px rgba(255,255,255,.3);
+}
+.pill:hover::before{left:100%}
+.pill:active{transform:translateY(0) scale(.98)}
+
+/* 🎭 ANIMAÇÕES DE CENA */
+.scene{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  animation:fadeSlow 2s ease;
+}
+.scene.hidden{display:none}
+@keyframes fadeSlow{
+  from{opacity:0;transform:translateY(20px) scale(.95)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes fadeOut{
+  to{opacity:0;transform:translateY(-20px) scale(.95)}
+}
+
+/* 📝 FORMULÁRIO */
+.form-group{
+  width:100%;
+  margin-bottom:14px;
+}
+.form-group input{
+  width:100%;
+  padding:14px 18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:.95rem;
+  outline:none;
+  transition:.3s;
+}
+.form-group input::placeholder{color:rgba(255,255,255,.4)}
+.form-group input:focus{
+  border-color:#25D366;
+  background:rgba(255,255,255,.1);
+  box-shadow:0 0 20px rgba(37,211,102,.25);
+}
+
+/* 🔝 CABEÇALHO */
+.header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:50;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header img{
+  width:36px;height:36px;
+  border-radius:50%;
+  box-shadow:0 0 20px rgba(37,211,102,.5);
+}
+.header .brand{
+  font-weight:800;
+  font-size:1.1rem;
+  letter-spacing:.5px;
+}
+.header .brand .w{color:#25D366}
+.header .brand .g{color:#4a9eff}
+
+/* 🔻 RODAPÉ */
+.footer{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:50;
+  padding:10px;
+  text-align:center;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#4a9eff;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:1.5px;
+}
+
+/* 📱 RESPONSIVO */
+@media(max-width:380px){
+  .glass{padding:28px 20px}
+  h1{font-size:1.25rem!important}
+}
+</style>
+</head>
+<body>
+
+<!-- 🎬 FUNDO -->
+<div class="bg-video"></div>
+
+<!-- 💚 NEON NOS CANTOS -->
+<div class="neon n-tl"></div>
+<div class="neon n-tr"></div>
+<div class="neon n-bl"></div>
+<div class="neon n-br"></div>
+
+<!-- 🔝 CABEÇALHO -->
+<div class="header">
+  <img src="favicon4.png" alt="Whatsgroup">
+  <div class="brand"><span class="w">Whats</span><span class="g">group</span></div>
+</div>
+
+<!-- 🎭 CENA 1: BOAS-VINDAS -->
+<div class="glass scene" id="scene1">
+  <h1 style="font-size:1.4rem;font-weight:800;line-height:1.4;margin-bottom:8px;">
+    Deseja entrar para o grupo de <span style="color:#25D366">soluções digitais?</span>
+  </h1>
+  <p style="color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.5;margin-top:8px;">
+    Sites, automações, marketing digital e muito mais direto no seu WhatsApp. 🚀
+  </p>
+  <button class="pill" onclick="goScene2()">QUERO</button>
+</div>
+
+<!-- 🎭 CENA 2: FORMULÁRIO -->
+<div class="glass scene hidden" id="scene2">
+  <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:18px;">
+    Conta pra gente quem é você 👇
+  </h2>
+  <form id="leadForm" onsubmit="sendLead(event)">
+    <div class="form-group">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+    </div>
+    <div class="form-group">
+      <input type="tel" id="contato" placeholder="Seu contato (WhatsApp)" required>
+    </div>
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Seu e-mail" required>
+    </div>
+    <button type="submit" class="pill">ENTRAR</button>
+  </form>
+</div>
+
+<!-- 🔻 RODAPÉ -->
+<div class="footer">SIDMARKTING CONSTRÓI SEU SITE</div>
+
+<script>
+function goScene2(){
+  const s1 = document.getElementById('scene1');
+  const s2 = document.getElementById('scene2');
+  s1.style.animation = 'fadeOut .5s ease forwards';
+  setTimeout(()=>{
+    s1.classList.add('hidden');
+    s2.classList.remove('hidden');
+  }, 450);
+}
+
+function sendLead(e){
+  e.preventDefault();
+  const nome = document.getElementById('nome').value.trim();
+  const contato = document.getElementById('contato').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  // 📲 Mensagem pronta pro seu WhatsApp
+  const msg = encodeURIComponent(
+    `🚀 *Novo lead Whatsgroup!*\n\n` +
+    `👤 *Nome:* ${nome}\n` +
+    `📞 *Contato:* ${contato}\n` +
+    `📧 *E-mail:* ${email}\n\n` +
+    `Quero entrar para o grupo de soluções digitais!`
+  );
+
+  const seuWhats = '5521966053200';
+  const linkGrupo = 'https://chat.whatsapp.com/C5LUDYB2cRH7aYZolunZJi';
+
+  // 1) Abre o WhatsApp com a mensagem no SEU chat
+  window.open(`https://wa.me/${seuWhats}?text=${msg}`, '_blank');
+
+  // 2) 1.5s depois, joga o cliente no grupo
+  setTimeout(()=>{
+    window.open(linkGrupo, '_blank');
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
